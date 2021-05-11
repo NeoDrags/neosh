@@ -1,3 +1,3 @@
-# Awsome Shell Emulator ( ASH )
+# Yet Another Shell Emulator ( ASH )
 
 It is an attempt to try making a shell in python.
