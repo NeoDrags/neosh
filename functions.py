@@ -15,7 +15,10 @@ def execute_commands(command):
 
 def ls():
     files = os.listdir()
-    files.sort()
+    for file in files:
+        if os.path.isfile(file) and file.startswith('.'):
+            files.remove(file)
+    files.sort(key=str.casefold)
     for file in files:
         if os.path.isdir(file):
             print(colored(file, 'blue', attrs=['bold']), end=' ')
