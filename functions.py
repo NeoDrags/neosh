@@ -1,5 +1,7 @@
 import os
+from os import walk
 import subprocess
+from termcolor import colored
 
 def execute_commands(command):
     try:
@@ -10,6 +12,16 @@ def execute_commands(command):
         subprocess.run(commands)
     except Exception as e:
         print("Error command not found", e)
+
+def ls():
+    files = os.listdir()
+    files.sort()
+    for file in files:
+        if os.path.isdir(file):
+            print(colored(file, 'blue', attrs=['bold']), end=' ')
+        else:
+            print(file, end=' ')
+    print()
 
 def cd(path):
     ch = ''.join(path)
