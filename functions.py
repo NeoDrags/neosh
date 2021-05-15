@@ -1,5 +1,5 @@
 import os
-from os import walk
+from os import system, name
 import subprocess
 from termcolor import colored
 
@@ -12,6 +12,12 @@ def execute_commands(command):
         subprocess.run(commands)
     except Exception as e:
         print("Error command not found", e)
+
+def clear():
+    if name == "nt":
+        _ = system('cls')
+    else:
+        _ = system('clear')
 
 def ls():
     files = os.listdir()
