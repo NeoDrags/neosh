@@ -1,4 +1,4 @@
-from functions import execute_commands, ls
+from functions import execute_commands, ls, clear
 
 def main():
     try:
@@ -9,6 +9,8 @@ def main():
                 break
             elif command == "ls":
                 ls()
+            elif command == "clear":
+                clear()
             elif command == "help":
                 print("yash : Yet Another SHell written in python.")
             else:
