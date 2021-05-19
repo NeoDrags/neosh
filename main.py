@@ -12,7 +12,7 @@ def main():
     hostname = socket.gethostname()
     history = Path(HOME_DIR + "/.yash_history")
     if history.is_file():
-        readline.write_history_file(history)
+        readline.read_history_file(history)
     else:
         open(str(history), "a").close()
     try:
