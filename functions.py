@@ -1,8 +1,10 @@
 import os
 from os import system, name
+import glob
 import subprocess
 from termcolor import colored
-    
+from string import digits, ascii_letters as letters
+
 def execute_commands(command):
     try:
         commands = command.split()
@@ -19,17 +21,17 @@ def clear():
     else:
         _ = system('clear')
 
+def alphanumeric_key(text):
+    return [c.lower() for c in text if c in letters + digits]
+
 def ls():
-    files = os.listdir()
-    for file in files:
-        if os.path.isfile(file) and file.startswith('.'):
-            files.remove(file)
-    files.sort(key=str.casefold)
+    files = glob.glob("*")
+    files.sort(key = alphanumeric_key)
     for file in files:
         if os.path.isdir(file):
-            print(colored(file, 'blue', attrs=['bold']), end=' ')
+            print(colored(file, 'blue', attrs=['bold']), end='   ')
         else:
-            print(file, end=' ')
+            print(colored(file, "white", attrs=['bold']), end='   ')
     print()
 
 def cd(path):
