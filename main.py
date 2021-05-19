@@ -11,8 +11,10 @@ def main():
     HOME_DIR = str(Path.home())
     hostname = socket.gethostname()
     history = Path(HOME_DIR + "/.yash_history")
-    if not history.is_file():
+    if history.is_file():
         readline.write_history_file(history)
+    else:
+        open(str(history), "a").close()
     try:
         while True:
             cwd = str(os.path.basename(str(os.getcwd())))
