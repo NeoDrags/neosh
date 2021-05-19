@@ -2,7 +2,7 @@ import os
 from os import system, name
 import subprocess
 from termcolor import colored
-
+    
 def execute_commands(command):
     try:
         commands = command.split()
