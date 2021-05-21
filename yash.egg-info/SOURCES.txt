@@ -1,0 +1,9 @@
+LICENSE
+README.md
+setup.cfg
+setup.py
+yash.egg-info/PKG-INFO
+yash.egg-info/SOURCES.txt
+yash.egg-info/dependency_links.txt
+yash.egg-info/requires.txt
+yash.egg-info/top_level.txt
