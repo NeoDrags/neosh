@@ -2,7 +2,7 @@ from distutils.core import setup
 from setuptools import find_packages
 
 setup(
-  name = 'yash',         
+  name = 'yash-shell',         
   packages = find_packages(),
   version = '0.0.1',
   license='MIT',
@@ -18,7 +18,7 @@ setup(
   classifiers=[
     'Development Status :: 3 - Alpha',
     'Intended Audience :: Developers',
-    'Topic :: Terminal Emulators',
+    'Topic :: System',
     'License :: OSI Approved :: MIT License',
     'Programming Language :: Python :: 3.6',
     'Programming Language :: Python :: 3.7',
