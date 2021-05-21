@@ -1,1 +1,1 @@
-termcolor
+prompt-toolkit
