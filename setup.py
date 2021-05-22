@@ -25,7 +25,7 @@ setup(
     install_requires=["prompt-toolkit", "termcolor", "pygments"],
     entry_points = {
         "console_scripts": [
-            "yash = __main__:main"
+            "yash = __main__:shell"
         ]
     }
 )
