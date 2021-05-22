@@ -1,0 +1,3 @@
+[console_scripts]
+yash = __main__:main
+
