@@ -1,9 +1,12 @@
+from prompt_toolkit.shortcuts.prompt import CompleteStyle
 from functions.functions import execute_commands, ls, clear
+from functions.completer import merged_completers
 from pathlib import Path
 from pygments.lexers.shell import FishShellLexer
 from prompt_toolkit.lexers import PygmentsLexer
 from prompt_toolkit import PromptSession
 from prompt_toolkit.history import FileHistory
+from prompt_toolkit.completion import FuzzyCompleter
 import sys
 from prompt_toolkit.auto_suggest import AutoSuggestFromHistory
 import os
@@ -36,8 +39,13 @@ def shell():
                 ('class:end', part3)
             ]
             
-            command = session.prompt(input_required, style=style, lexer=PygmentsLexer(FishShellLexer), auto_suggest=AutoSuggestFromHistory())
-            
+            command = session.prompt(input_required,
+                                     style=style,
+                                     lexer=PygmentsLexer(FishShellLexer),
+                                     auto_suggest=AutoSuggestFromHistory(),
+                                     completer=FuzzyCompleter(merged_completers),
+                                     complete_style=CompleteStyle.READLINE_LIKE)
+
             if command == "exit":
                 print("exit")
                 break
