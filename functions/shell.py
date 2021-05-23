@@ -1,7 +1,6 @@
 from prompt_toolkit.shortcuts.prompt import CompleteStyle
 from functions.functions import execute_commands, ls, clear
 from pathlib import Path
-from functions.pythonREPL import repl
 from pygments.lexers.shell import FishShellLexer
 from prompt_toolkit.lexers import PygmentsLexer
 from prompt_toolkit import PromptSession
@@ -76,9 +75,14 @@ def shell():
                 print("yash : Yet Another SHell written in python.")
             else:
                 try:
-                    repl(command)
+                    try:
+                        print(eval(command))
+                    except:
+                        out = exec(command)
+                        if out != None:
+                            print(out)
                 except:
-                  execute_commands(command)
+                    execute_commands(command)
            
             command = command + "\n"
             
