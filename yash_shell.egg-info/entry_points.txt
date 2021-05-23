@@ -1,3 +1,3 @@
 [console_scripts]
-yash = __main__:shell
+yash = functions.shell:shell
 
