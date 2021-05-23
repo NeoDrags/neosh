@@ -1,5 +1,7 @@
 README.md
 setup.py
+functions/functions.py
+functions/shell.py
 yash_shell.egg-info/PKG-INFO
 yash_shell.egg-info/SOURCES.txt
 yash_shell.egg-info/dependency_links.txt
