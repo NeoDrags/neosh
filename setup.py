@@ -9,7 +9,7 @@ README = (HERE / "README.md").read_text()
 setup(
     name = "yash-shell",
     packages = ["functions"],
-    version = "0.0.2",
+    version = "0.0.3",
     description = "Yet Another SHell but written in python",
     long_description = README,
     long_description_content_type = "text/markdown",
