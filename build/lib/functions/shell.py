@@ -14,7 +14,6 @@ import glob
 from prompt_toolkit.styles import Style
 import getpass
 import socket
-from git import Repo 
 
 def shell():
             
@@ -64,9 +63,10 @@ def shell():
             part8 = ""
             
             if str(x) == "true":
-                repo = Repo(os.getcwd())
+                changed_files = subprocess.getoutput("git ls-files -m")
+                added_files = subprocess.getoutput("git diff --name-only --cached")
                 current_branch = subprocess.getoutput("git branch --show-current")
-                if len(repo.untracked_files) != 0:
+                if len(changed_files) != 0 or len(added_files) != 0:
                     part1 = "[" + str(getpass.getuser()) + "@" + hostname + " "
                     part2 = str(os.path.basename(str(os.getcwd())))
                     part3 = "]"
@@ -82,7 +82,7 @@ def shell():
                     part4 = "("
                     part5 = current_branch + " "
                     part6 = "✓"
-                    part7 = " " + ")"
+                    part7 = ")"
                     part8 = "$ "                   
             else:
                 part1 = "[" + str(getpass.getuser()) + "@" + hostname + " "

@@ -1,4 +1,3 @@
 prompt-toolkit
 termcolor
 pygments
-GitPython
