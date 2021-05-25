@@ -10,7 +10,7 @@ setup(
     name = "yash-shell",
     packages = ["functions"],
     version = "0.0.5",
-    description = "Yet Another SHell but written in python",
+    description = "Yet Another SHell written in python",
     long_description = README,
     long_description_content_type = "text/markdown",
     url="https://github.com/neodrags/yash-shell",
