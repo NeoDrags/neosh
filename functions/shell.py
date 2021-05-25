@@ -65,10 +65,9 @@ def shell():
             
             if str(x) == "true":
                 changed_files = subprocess.getoutput("git ls-files -m")
-                untracked_files = subprocess.getoutput("git ls-files -0")
                 added_files = subprocess.getoutput("git diff --name-only --cached")
                 current_branch = subprocess.getoutput("git branch --show-current")
-                if len(untracked_files) != 0 or len(changed_files) != 0 or len(added_files) != 0:
+                if len(changed_files) != 0 or len(added_files) != 0:
                     part1 = "[" + str(getpass.getuser()) + "@" + hostname + " "
                     part2 = str(os.path.basename(str(os.getcwd())))
                     part3 = "]"
