@@ -9,7 +9,7 @@ README = (HERE / "README.md").read_text()
 setup(
     name = "yash-shell",
     packages = ["functions"],
-    version = "0.0.5",
+    version = "0.0.6",
     description = "Yet Another SHell written in python",
     long_description = README,
     long_description_content_type = "text/markdown",
@@ -22,7 +22,7 @@ setup(
         "Programming Language :: Python :: 3",
         "Programming Language :: Python :: 3.7",
     ],
-    install_requires=["prompt-toolkit", "termcolor", "pygments", "GitPython"],
+    install_requires=["prompt-toolkit", "termcolor", "pygments"],
     entry_points = {
         "console_scripts": [
             "yash = functions.shell:shell"

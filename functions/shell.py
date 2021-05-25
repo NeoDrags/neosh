@@ -14,7 +14,6 @@ import glob
 from prompt_toolkit.styles import Style
 import getpass
 import socket
-from git import Repo , InvalidGitRepositoryError
 
 def shell():
             
@@ -138,9 +137,6 @@ def shell():
             
         except KeyboardInterrupt:
             sys.exit("\nexit")
-
-        except InvalidGitRepositoryError:
-            pass
 
         except EOFError:
             sys.exit("\nexit")
