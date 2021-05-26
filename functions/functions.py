@@ -26,9 +26,9 @@ def execute_commands(command):
         elif "rm" == commands[0]:
             if commands[1] == "-rf":
                 path = Path(os.getcwd())
-                new_dir = os.path.join(path, commands[2])
-                if os.path.exists(new_dir) and os.path.isdir(new_dir):
-                    shutil.rmtree(new_dir, ignore_errors=True)
+                directory = os.path.join(path, commands[2])
+                if os.path.exists(directory) and os.path.isdir(directory):
+                    shutil.rmtree(directory, ignore_errors=True)
             else:
                 os.remove(command[1])
             return
