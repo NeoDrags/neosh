@@ -5,6 +5,9 @@ from pathlib import Path
 import subprocess
 from termcolor import colored
 from string import digits, ascii_letters as letters
+from pathlib import Path
+import os
+import shutil
 
 def execute_commands(command):
     try:
@@ -14,7 +17,23 @@ def execute_commands(command):
                 os.chdir(Path.home())
             else:
                 cd(commands[1:])
+                return
+        elif "mkdir" == commands[0]:
+            path = Path(os.getcwd())
+            new_dir = os.path.join(path, commands[1])
+            os.mkdir(new_dir)
             return
+        elif "rm" == commands[0]:
+            if commands[1] == "-rf":
+                path = Path(os.getcwd())
+                new_dir = os.path.join(path, commands[2])
+                if os.path.exists(new_dir) and os.path.isdir(new_dir):
+                    shutil.rmtree(new_dir, ignore_errors=True)
+            else:
+                os.remove(command[1])
+            return
+
+
         subprocess.run(commands)
     except Exception:
         print("yash: command not found:", command)

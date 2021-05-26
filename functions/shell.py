@@ -1,4 +1,6 @@
 import subprocess
+
+from prompt_toolkit.shortcuts.prompt import prompt
 from functions.functions import execute_commands, ls, clear
 from pathlib import Path
 from pygments.lexers.shell import FishShellLexer
@@ -108,7 +110,7 @@ def shell():
                                      completer=FuzzyCompleter(merged_completers),
                                      complete_while_typing= False)
 
-            if command == "exit":
+            if command == "exit":   
                 print("exit")
                 break
             elif command == "ls":
@@ -117,6 +119,9 @@ def shell():
                 pass
             elif command == "clear":
                 clear()
+            elif command == "git commit":
+                message = prompt("Enter Commit Message: ")
+                subprocess.run("git commit -m \""+ message +"\"")
             elif command == "help":
                 print("yash : Yet Another SHell written in python.")
             else:

@@ -1,7 +1,6 @@
 from os import name
 from setuptools import setup, find_packages
 import pathlib
-
 HERE = pathlib.Path(__file__).parent
 
 README = (HERE / "README.md").read_text()
