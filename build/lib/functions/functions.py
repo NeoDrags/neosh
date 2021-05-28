@@ -16,7 +16,8 @@ def execute_commands(command):
             if len(commands[1:]) == 0:
                 os.chdir(Path.home())
             else:
-                cd(commands[1:])
+                _,_,dir = command.partition(' ')
+                os.chdir(dir)
             return
         elif "mkdir" == commands[0]:
             path = Path(os.getcwd())
