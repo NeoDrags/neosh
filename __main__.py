@@ -1,4 +1,4 @@
-from functions.shell import shell
+from yash.shell import shell
 
 if __name__ == "__main__":
     
