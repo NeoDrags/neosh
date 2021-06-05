@@ -1,6 +1,7 @@
 import subprocess
 from prompt_toolkit.shortcuts.prompt import prompt
-from functions.functions import execute_commands, ls, clear
+from yash.functions import execute_commands, ls, clear
+from yash.checker import checker, yaml_directory
 from pathlib import Path
 from pygments.lexers.shell import FishShellLexer
 from prompt_toolkit.lexers import PygmentsLexer
@@ -14,12 +15,15 @@ from prompt_toolkit.completion import merge_completers, WordCompleter
 import glob
 import importlib
 import yaml
-import threading
-import themes.neoTheme as theme
-
 
 def shell():
     HOME_DIR = str(Path.home())
+    env = os.path.expanduser(os.path.expandvars(HOME_DIR + ".config/yash/"))
+    sys.path.insert(0, env)
+    checker()
+    yaml_dir = open(yaml_directory, "r")
+    yamlContents = yaml.load(yaml_dir, Loader = yaml.FullLoader)
+    theme = importlib.import_module("themes." + yamlContents["theme"])
     history = Path(HOME_DIR + "/.yash_history")
     session = PromptSession(history=FileHistory(str(history)))
 
