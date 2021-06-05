@@ -18,15 +18,16 @@ import yaml
 
 def shell():
     HOME_DIR = str(Path.home())
-    env = os.path.expanduser(os.path.expandvars(HOME_DIR + ".config/yash/"))
-    sys.path.insert(0, env)
+    env = os.path.expanduser(os.path.expandvars(HOME_DIR + "/.config/yash/"))
+    sys.path.append(env)
+    print(sys.path)
     checker()
     yaml_dir = open(yaml_directory, "r")
     yamlContents = yaml.load(yaml_dir, Loader = yaml.FullLoader)
-    theme = importlib.import_module("themes." + yamlContents["theme"])
+    theme = importlib.import_module("Themes." + yamlContents["theme"])
     history = Path(HOME_DIR + "/.yash_history")
     session = PromptSession(history=FileHistory(str(history)))
-
+    
     while True:
         try:
             bash_commands = WordCompleter([
