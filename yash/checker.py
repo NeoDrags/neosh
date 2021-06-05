@@ -1,5 +1,5 @@
 from pathlib import Path
-from shutil import move, copytree
+from shutil import copytree, copyfile
 from os.path import isdir
 
 HOME_DIR = str(Path.home())
@@ -11,7 +11,7 @@ def checker():
     Path(config_directory).mkdir(parents=True, exist_ok=True)
     Path(yash_directory).mkdir(parents=True, exist_ok=True)
     if Path(yaml_directory).exists() != True:
-        move(".config/config.yaml", yaml_directory)
+        copyfile(".config/config.yaml", yaml_directory)
     themes_directory = yash_directory + "/themes"
     if isdir(themes_directory) != True:
-        move("themes",themes_directory)
+        copytree("themes",themes_directory)
