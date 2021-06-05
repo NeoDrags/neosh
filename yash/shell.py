@@ -20,7 +20,6 @@ def shell():
     HOME_DIR = str(Path.home())
     env = os.path.expanduser(os.path.expandvars(HOME_DIR + "/.config/yash/"))
     sys.path.append(env)
-    print(sys.path)
     checker()
     yaml_dir = open(yaml_directory, "r")
     yamlContents = yaml.load(yaml_dir, Loader = yaml.FullLoader)
