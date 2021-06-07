@@ -6,9 +6,9 @@ HERE = pathlib.Path(__file__).parent
 README = (HERE / "README.md").read_text()
 
 setup(
-    name = "yash-shell",
-    packages = ["functions"],
-    version = "0.1.1",
+    name = "neosh",
+    packages = ["neosh", "neosh.neosh", "neosh.themes"],
+    version = "0.0.1",
     description = "Yet Another SHell written in python",
     long_description = README,
     long_description_content_type = "text/markdown",
@@ -16,6 +16,7 @@ setup(
     author="Prateek Kesavarapu",
     author_email="kesavarapu.prateek@gmail.com",
     license="MIT",
+    include_package_data = True,
     classifiers=[
         "License :: OSI Approved :: MIT License",
         "Programming Language :: Python :: 3",
@@ -24,7 +25,7 @@ setup(
     install_requires=["prompt-toolkit", "termcolor", "pygments"],
     entry_points = {
         "console_scripts": [
-            "yash = functions.shell:shell"
+            "neosh = neosh.neosh.shell:shell"
         ]
     }
 )

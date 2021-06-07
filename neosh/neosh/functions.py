@@ -1,9 +1,10 @@
 import os
 from os import system, name
+from prompt_toolkit import print_formatted_text, HTML
+from prompt_toolkit.styles import Style
 import glob
 from pathlib import Path
 import subprocess
-from termcolor import colored
 from string import digits, ascii_letters as letters
 from pathlib import Path
 import os
@@ -51,11 +52,17 @@ def alphanumeric_key(text):
 def ls():
     files = glob.glob("*")
     files.sort(key = alphanumeric_key)
+    directory = Style.from_dict({
+        'dir': '#0FFFFF bold'
+    })
+    files_style = Style.from_dict({
+        'files': '#FFFFFF bold'
+    })
     for file in files:
         if os.path.isdir(file):
-            print(colored(file, 'blue', attrs=['bold']), end='   ')
+            print_formatted_text(HTML("<dir>" + file + "</dir>"), end=" ", style=directory)
         else:
-            print(colored(file, "white", attrs=['bold']), end='   ')
+            print_formatted_text(HTML("<files>" + file + "</files>"), end=" ", style=files_style)
     print()
 
 def cd(path):

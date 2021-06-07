@@ -1,7 +1,7 @@
 import subprocess
 from prompt_toolkit.shortcuts.prompt import prompt
-from yash.functions import execute_commands, ls, clear
-from yash.checker import checker, yaml_directory
+from neosh.neosh.functions import execute_commands, ls, clear
+from neosh.checker import checker, yaml_directory
 from pathlib import Path
 from pygments.lexers.shell import FishShellLexer
 from prompt_toolkit.lexers import PygmentsLexer
@@ -18,17 +18,18 @@ import yaml
 
 def shell():
     HOME_DIR = str(Path.home())
-    env = os.path.expanduser(os.path.expandvars(HOME_DIR + "/.config/yash/"))
+    env = os.path.expanduser(os.path.expandvars(HOME_DIR + "/.config/neosh/Themes"))
     sys.path.append(env)
     checker()
     yaml_dir = open(yaml_directory, "r")
     yamlContents = yaml.load(yaml_dir, Loader = yaml.FullLoader)
-    theme = importlib.import_module("Themes." + yamlContents["theme"])
-    history = Path(HOME_DIR + "/.yash_history")
+    theme = importlib.import_module(yamlContents["theme"])
+    history = Path(HOME_DIR + "/.neosh_history")
     session = PromptSession(history=FileHistory(str(history)))
     
     while True:
         try:
+            importlib.reload(theme)
             bash_commands = WordCompleter([
                 "ls",
                 "cd",
@@ -84,7 +85,6 @@ def shell():
                         os.system(command)
            
             command = command + "\n"
-            importlib.reload(theme)
 
 
         except KeyboardInterrupt:
