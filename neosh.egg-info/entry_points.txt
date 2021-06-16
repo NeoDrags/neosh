@@ -1,0 +1,3 @@
+[console_scripts]
+neosh = neosh.neosh.shell:shell
+

@@ -8,7 +8,7 @@ README = (HERE / "README.md").read_text()
 setup(
     name = "neosh",
     packages = ["neosh", "neosh.neosh", "neosh.themes"],
-    version = "0.0.1",
+    version = "0.0.2",
     description = "Yet Another SHell written in python",
     long_description = README,
     long_description_content_type = "text/markdown",
@@ -20,7 +20,7 @@ setup(
     classifiers=[
         "License :: OSI Approved :: MIT License",
         "Programming Language :: Python :: 3",
-        "Programming Language :: Python :: 3.7",
+        "Programming Language :: Python :: 3.9",
     ],
     install_requires=["prompt-toolkit", "termcolor", "pygments"],
     entry_points = {

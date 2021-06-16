@@ -1,21 +1,19 @@
 Metadata-Version: 2.1
-Name: yash-shell
-Version: 0.1.12
+Name: neosh
+Version: 0.0.2
 Summary: Yet Another SHell written in python
 Home-page: https://github.com/neodrags/yash-shell
 Author: Prateek Kesavarapu
 Author-email: kesavarapu.prateek@gmail.com
 License: MIT
-Description: # Yet Another Shell Emulator ( YASH )
+Description: # Neo SHell emulator (NEOSH)
         
         It is an attempt to try making a shell in python. Has autocomplete as well as a fancy new theme. If there are any issues please add it in the issues section. 
         
         First do pip3 install -r requirements.txt then do python3 main.py
         
-        [Here is the demo][https://replit.com/@NeoDrags/yash-demo]
-        
 Platform: UNKNOWN
 Classifier: License :: OSI Approved :: MIT License
 Classifier: Programming Language :: Python :: 3
-Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.9
 Description-Content-Type: text/markdown
